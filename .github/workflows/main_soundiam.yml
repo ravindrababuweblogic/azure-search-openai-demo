@@ -48,7 +48,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ https://soundiam.azurewebsites.net }}
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
       - name: Download artifact from build job
@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'soundiam'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1E05F253B4F04C568CB618EC4B932A8B }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1155F25890A34C7DAECE920E85EADC88 }}
